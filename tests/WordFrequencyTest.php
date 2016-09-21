@@ -105,9 +105,9 @@
         {
 
             //ARRANGE
-            $word = "a";
-            $sentence = "a";
-            $repeats = 1;
+            $word = "[ant]";
+            $sentence = "[the bug found all of the spiders eating catching their buddies]";
+            $repeats = 0;
             $repeat_counter_instance = new RepeatCounter($word);
 
             //ACT
