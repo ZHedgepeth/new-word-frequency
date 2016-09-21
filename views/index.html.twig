@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <title>Word Frequency Counter</title>
+    </head>
+    <body>
+      <div class="container">
+        <div class="row">
+          <h1>COUNT THAT WORD!</h1>
+        </div>
+        <form action="/count_repeats" method="get">
+          <div class="form-group">
+            <label for="word">Enter a word to count</label>
+              <input id="word" name="word" type="text" class="form-control">
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <label for="sentence">Enter a sentence to count the previously entered word.</label>
+              <input id="sentence" name="sentence" type="text" class="form-control">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-success">How many times did you use that word?!</button>
+        </form>
+      </div>
+    </div>
+    </body>
