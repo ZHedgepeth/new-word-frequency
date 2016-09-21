@@ -3,56 +3,58 @@
     require_once (__DIR__ . "/../WordFrequency.php");
 
     class RepeatCounterTest extends PHPUnit_Framework_TestCase
+
     {
         function test_OneLetterWordOneLetterStringMatch()
-        {
 
+        {
             //ARRANGE
             $word = "a";
             $sentence = "a";
-            $repeats = 1;
-            $repeat_counter_instance = new RepeatCounter($word);
+            $expected_outcome = 1;
+            $repeat_counter_instance = new RepeatCounter($sentence, $word);
 
             //ACT
-            $test_result = $repeat_counter_instance->CountRepeats($word);
+            $test_result = $repeat_counter_instance->CountRepeats($sentence, $word);
 
             //ASSERT
-            $this->assertEquals($repeats, $test_result);
+            $this->assertEquals($expected_outcome, $test_result);
         }
 
         function test_OneLetterWordOneLetterStringNonMatch()
-        {
 
+        {
             //ARRANGE
             $word = "a";
             $sentence = "b";
-            $repeats = 0;
-            $repeat_counter_instance = new RepeatCounter($word);
+            $expected_outcome = 0;
+            $repeat_counter_instance = new RepeatCounter($sentence, $word);
 
             //ACT
-            $test_result = $repeat_counter_instance->CountRepeats($word);
+            $test_result = $repeat_counter_instance->CountRepeats($sentence, $word);
 
             //ASSERT
-            $this->assertEquals($repeats, $test_result);
+            $this->assertEquals($expected_outcome, $test_result);
         }
 
         function test_OneLetterWordMultiLetterStringOneMatch()
-        {
 
+        {
             //ARRANGE
             $word = "a";
-            $sentence = "a", "b";
-            $repeats = 1;
-            $repeat_counter_instance = new RepeatCounter($word);
+            $sentence = "b";
+            $expected_outcome = 0;
+            $repeat_counter_instance = new RepeatCounter($sentence, $word);
 
             //ACT
-            $test_result = $repeat_counter_instance->CountRepeats($word);
+            $test_result = $repeat_counter_instance->CountRepeats($sentence, $word);
 
             //ASSERT
-            $this->assertEquals($repeats, $test_result);
+            $this->assertEquals($expected_outcome, $test_result);
         }
 
         function test_OneWordOneWordStringMatch()
+
         {
 
             //ARRANGE
