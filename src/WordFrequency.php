@@ -42,7 +42,7 @@
             $this->sentence = (string) $sentence_used;
         }
 
-        function CountRepeats()
+        function countRepeats()
         {
             $word_to_count = $this->getWord();
             $repeats = 0;
