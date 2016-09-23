@@ -1,6 +1,6 @@
 <?php
 
-    require_once (__DIR__ . "/../WordFrequency.php");
+    require_once (__DIR__ . "/../src/WordFrequency.php");
 
     class RepeatCounterTest extends PHPUnit_Framework_TestCase
 
@@ -9,8 +9,8 @@
 
         {
             //ARRANGE
-            $word = "[a]";
-            $sentence = "[a]";
+            $word = "a";
+            $sentence = "a";
             $expected_outcome = 1;
             $repeat_counter_instance = new RepeatCounter($sentence, $word);
 
@@ -25,8 +25,8 @@
 
         {
             //ARRANGE
-            $word = "[a]";
-            $sentence = "[b]";
+            $word = "a";
+            $sentence = "b";
             $expected_outcome = 0;
             $repeat_counter_instance = new RepeatCounter($sentence, $word);
 
@@ -41,8 +41,8 @@
 
         {
             //ARRANGE
-            $word = "[a]";
-            $sentence = "[a, b]";
+            $word = "a";
+            $sentence = "a b";
             $expected_outcome = 0;
             $repeat_counter_instance = new RepeatCounter($sentence, $word);
 
@@ -57,8 +57,8 @@
 
         {
             //ARRANGE
-            $word = "[ant]";
-            $sentence = "[ant]";
+            $word = "ant";
+            $sentence = "ant";
             $expected_outcome = 1;
             $repeat_counter_instance = new RepeatCounter($sentence, $word);
 
@@ -73,8 +73,8 @@
 
         {
             //ARRANGE
-            $word = "[ant]";
-            $sentence = "[bug]";
+            $word = "ant";
+            $sentence = "bug";
             $expected_outcome = 0;
             $repeat_counter_instance = new RepeatCounter($sentence, $word);
 
@@ -89,13 +89,13 @@
         {
 
             //ARRANGE
-            $word = "[ant]";
-            $sentence = "[the ant crawled to the ant hole to see another ant.]";
+            $word = "ant";
+            $sentence = "the ant crawled to the ant hole to see another ant.";
             $repeats = 3;
-            $repeat_counter_instance = new RepeatCounter($word);
+            $repeat_counter_instance = new RepeatCounter($sentence, $word);
 
             //ACT
-            $test_result = $repeat_counter_instance->CountRepeats($word);
+            $test_result = $repeat_counter_instance->CountRepeats($sentence, $word);
 
             //ASSERT
             $this->assertEquals($repeats, $test_result);
@@ -105,19 +105,18 @@
         {
 
             //ARRANGE
-            $word = "[ant]";
-            $sentence = "[the bug found all of the spiders eating catching their buddies]";
+            $word = "ant";
+            $sentence = "the bug found all of the spiders eating catching their buddies.";
             $repeats = 0;
-            $repeat_counter_instance = new RepeatCounter($word);
+            $repeat_counter_instance = new RepeatCounter($sentence, $word);
 
             //ACT
-            $test_result = $repeat_counter_instance->CountRepeats($word);
+            $test_result = $repeat_counter_instance->CountRepeats($sentence, $word);
 
             //ASSERT
             $this->assertEquals($repeats, $test_result);
         }
 
     }
-
 
 ?>
