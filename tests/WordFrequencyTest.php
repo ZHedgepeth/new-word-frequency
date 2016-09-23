@@ -15,7 +15,7 @@
             $repeat_counter_instance = new RepeatCounter($sentence, $word);
 
             //ACT
-            $test_result = $repeat_counter_instance->CountRepeats($sentence, $word);
+            $test_result = $repeat_counter_instance->countRepeats($sentence, $word);
 
             //ASSERT
             $this->assertEquals($expected_outcome, $test_result);
@@ -31,7 +31,7 @@
             $repeat_counter_instance = new RepeatCounter($sentence, $word);
 
             //ACT
-            $test_result = $repeat_counter_instance->CountRepeats($sentence, $word);
+            $test_result = $repeat_counter_instance->countRepeats($sentence, $word);
 
             //ASSERT
             $this->assertEquals($expected_outcome, $test_result);
@@ -43,11 +43,11 @@
             //ARRANGE
             $word = "a";
             $sentence = "a b";
-            $expected_outcome = 0;
+            $expected_outcome = 1;
             $repeat_counter_instance = new RepeatCounter($sentence, $word);
 
             //ACT
-            $test_result = $repeat_counter_instance->CountRepeats($sentence, $word);
+            $test_result = $repeat_counter_instance->countRepeats($sentence, $word);
 
             //ASSERT
             $this->assertEquals($expected_outcome, $test_result);
@@ -63,7 +63,7 @@
             $repeat_counter_instance = new RepeatCounter($sentence, $word);
 
             //ACT
-            $test_result = $repeat_counter_instance->CountRepeats($sentence, $word);
+            $test_result = $repeat_counter_instance->countRepeats($sentence, $word);
 
             //ASSERT
             $this->assertEquals($expected_outcome, $test_result);
@@ -79,7 +79,7 @@
             $repeat_counter_instance = new RepeatCounter($sentence, $word);
 
             //ACT
-            $test_result = $repeat_counter_instance->CountRepeats($sentence, $word);
+            $test_result = $repeat_counter_instance->countRepeats($sentence, $word);
 
             //ASSERT
             $this->assertEquals($expected_outcome, $test_result);
@@ -90,12 +90,12 @@
 
             //ARRANGE
             $word = "ant";
-            $sentence = "the ant crawled to the ant hole to see another ant.";
+            $sentence = "the ant crawled to the ant hole to see another ant";
             $repeats = 3;
             $repeat_counter_instance = new RepeatCounter($sentence, $word);
 
             //ACT
-            $test_result = $repeat_counter_instance->CountRepeats($sentence, $word);
+            $test_result = $repeat_counter_instance->countRepeats($sentence, $word);
 
             //ASSERT
             $this->assertEquals($repeats, $test_result);
@@ -111,7 +111,7 @@
             $repeat_counter_instance = new RepeatCounter($sentence, $word);
 
             //ACT
-            $test_result = $repeat_counter_instance->CountRepeats($sentence, $word);
+            $test_result = $repeat_counter_instance->countRepeats($sentence, $word);
 
             //ASSERT
             $this->assertEquals($repeats, $test_result);

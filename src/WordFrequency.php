@@ -5,11 +5,11 @@
         private $repeats;
         private $sentence;
 
-        function __construct($sentence, $word_to_count)
+        function __construct($sentence_to_use, $word_to_count)
         {
             $this->word = $word_to_count;
             $this->repeats = 0;
-            $this->sentence = $sentence;
+            $this->sentence = $sentence_to_use;
         }
 
         function getWord()
@@ -37,25 +37,25 @@
             return $this->sentence;
         }
 
-        function setSentence($sentence)
+        function setSentence($sentence_to_use)
         {
-            $this->sentence = (string) $sentence;
+            $this->sentence = (string) $sentence_to_use;
         }
 
         function countRepeats()
         {
-            $word_to_count = $this->getWord();
-            // $sentence = $this->getSentence();
+            $check_sentence = $this->getSentence();
+            $insensitve_sentence = strtolower($check_sentence);
+            $check_word = $this->getWord();
+            $insensitve_word = strtolower($check_word);
             $repeats = 0;
-            $sentence = $this->getSentence();
-            $insensitve_sentence = strtolower($word_to_count);
             $final_counted_sentence = explode(" ", $insensitve_sentence);
 
             foreach($final_counted_sentence as $word)
             {
-                if ($sentence === $word)
+                if ($word === $insensitve_word)
                 {
-                    $repeats += 1;
+                    $repeats++;
                 }
 
             }
