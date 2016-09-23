@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -5,9 +6,21 @@
     <title>Count Repeats</title>
   </head>
   <body>
-    <h1>How many times was your word repeated?<h1>
-    {% if !wordInput === "" %}
+    <h1>Now to see how many times was your word repeated...</h1>
 
-    <p>We need an actual word to check it...</p>
+    {% if wordInput == "" %}
 
-    
+    <h4>Try to enter a word...</h4>
+
+    {% elseif sentenceInput == "" %}
+
+    <h4>Try entering a sentence...</h4>
+
+    {% else %}
+
+    <h4>Your word {{wordInput}} came up {{ wordRepeated }} times! </h4>
+
+    {% endif %}
+  </body>
+
+</html>

@@ -6,14 +6,17 @@
 
     $app->register(new Silex\Provider\TwigServiceProvider(), array("twig.path" => __DIR__."/../views"));
 
-    $app->get("/", function() use ($app)
-    {
-        $sentence_repeat_counter = new RepeatCounter($_GET['sentence'], $_GET['word']);
-        $word = $sentence_repeat_counter->getWord();
-        $sentence = $sentence_repeat_counter->getSentence();
-        $repeats = $sentence_repeat_counter->countRepeats();
+    $app->get("/", function() use ($app) {
+        return $app['twig']->render("index.html.twig");
+    });
 
-        return $app['twig']->render("view_count.html.twig", array("wordToCount" => $word, "wordInput" => $repeats, "sentenceInput" => $sentence));
+    $app->get("/count_repeats", function() use($app) {
+        $sentence_repeat_counter = new RepeatCounter($_GET['sentence'], $_GET['word']);
+        $repeats = $sentence_repeat_counter->countRepeats();
+        $sentence = $sentence_repeat_counter->getSentence();
+        $word = $sentence_repeat_counter->getWord();
+
+        return $app['twig']->render("view_count.html.twig", array("wordInput" => $word, "wordRepeated" => $repeats, "sentenceInput" => $sentence));
     });
 
     return $app;
